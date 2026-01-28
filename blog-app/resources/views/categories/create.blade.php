@@ -18,7 +18,7 @@
         @csrf
 
         <label for="title">Titre:</label>
-        <input type="text" name="title" id="title" required>
+        <input type="text" name="name" id="title" required>
 
         <label for="description">Description:</label>
         <textarea name="description" id="description" rows="4"></textarea>

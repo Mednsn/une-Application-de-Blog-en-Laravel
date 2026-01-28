@@ -7,4 +7,4 @@ Route::get('/', function () {
     return redirect()->route('categories.index');
 });
 
-Route::resource('categories', CategoryController::class);                                                                                                                                               
+Route::resource('categories', CategoryController::class);                                                                                              

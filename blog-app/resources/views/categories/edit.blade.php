@@ -14,18 +14,18 @@
 <body>
     <h1>Modifier la Tâche</h1>
 
-    <form action="{{ route('tasks.update', $task) }}" method="POST">
+    <form action="{{ route('categories.update', $category) }}" method="POST">
         @csrf
         @method('PUT')
 
         <label for="title">Titre:</label>
-        <input type="text" name="title" id="title" value="{{ $task->title }}" required>
+        <input type="text" name="title" id="title" value="{{ $category->title }}" required>
 
         <label for="description">Description:</label>
-        <textarea name="description" id="description" rows="4">{{ $task->description }}</textarea>
+        <textarea name="description" id="description" rows="4">{{ $category->description }}</textarea>
 
         <label>
-            <input type="checkbox" name="completed" value="1" {{ $task->completed ? 'checked' : '' }}>
+            <input type="checkbox" name="completed" value="1" {{ $category->completed ? 'checked' : '' }}>
             Tâche terminée
         </label>
 
@@ -33,6 +33,6 @@
     </form>
 
     <br>
-    <a href="{{ route('tasks.index') }}">Retour à la liste</a>
+    <a href="{{ route('categories.index') }}">Retour à la liste</a>
 </body>
 </html>
