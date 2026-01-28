@@ -21,3 +21,21 @@ Ce fichier contient une rétrospective quotidienne de ce que j’ai appris en La
 - Problème d’installation de Composer au début
 
 -------------------------------------------
+
+## Jour 2 : Modeks et Controllers
+### Ce que j’ai appris ;
+
+- Creation des models et des controllers controllers avec Artisan
+- Définition des routes dans { web.php }
+
+### Pratique
+
+- Création d’un database 
+- creation des controllers et des models
+- creation des migration 
+
+### Difficultés
+
+- j'ai un probleme lors afficher un message
+
+-------------------------------------------
