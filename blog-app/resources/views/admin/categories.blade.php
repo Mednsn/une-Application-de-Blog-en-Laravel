@@ -32,7 +32,7 @@
             </div>
 
             <nav class="mt-6 px-4 space-y-2">
-                <a href="/"
+                <a href="/admin"
                     class="flex items-center px-4 py-3 text-gray-400 hover:bg-gray-800 hover:text-white rounded-lg transition-colors group">
                     <svg class="w-5 h-5 mr-3 group-hover:text-indigo-400 transition" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24">

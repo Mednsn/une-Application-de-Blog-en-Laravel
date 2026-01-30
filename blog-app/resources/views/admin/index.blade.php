@@ -156,53 +156,30 @@
                 <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                     <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
                         <h3 class="text-lg font-bold text-gray-900">Recent Posts</h3>
-                        <a href="posts.html" class="text-sm text-indigo-600 font-medium hover:text-indigo-800">View
+                        <a href="{{ route('posts.index')}}" class="text-sm text-indigo-600 font-medium hover:text-indigo-800">View
                             All</a>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left text-sm text-gray-600">
                             <thead class="bg-gray-50 text-xs uppercase font-medium text-gray-500">
                                 <tr>
+                                    <th class="px-6 py-3">image</th>
                                     <th class="px-6 py-3">Title</th>
                                     <th class="px-6 py-3">Category</th>
-                                    <th class="px-6 py-3">Status</th>
                                     <th class="px-6 py-3">Date</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-100">
                                 <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4 "><div class="p-3 rounded-full bg-emerald-100 "></div>
+                                    </td>
                                     <td class="px-6 py-4 font-medium text-gray-900">Mastering MVC in Laravel 11</td>
                                     <td class="px-6 py-4"><span
                                             class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full text-xs">Laravel</span>
                                     </td>
-                                    <td class="px-6 py-4"><span
-                                            class="text-emerald-600 font-bold dot-indicator flex items-center"><span
-                                                class="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>Published</span>
-                                    </td>
                                     <td class="px-6 py-4">Jan 24, 2026</td>
                                 </tr>
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="px-6 py-4 font-medium text-gray-900">Designing Clean UIs with Tailwind
-                                        CSS</td>
-                                    <td class="px-6 py-4"><span
-                                            class="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full text-xs">Tailwind</span>
-                                    </td>
-                                    <td class="px-6 py-4"><span
-                                            class="text-emerald-600 font-bold dot-indicator flex items-center"><span
-                                                class="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>Published</span>
-                                    </td>
-                                    <td class="px-6 py-4">Jan 22, 2026</td>
-                                </tr>
-                                <tr class="hover:bg-gray-50 transition">
-                                    <td class="px-6 py-4 font-medium text-gray-900">Color Theory for Developers</td>
-                                    <td class="px-6 py-4"><span
-                                            class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs">Design</span>
-                                    </td>
-                                    <td class="px-6 py-4"><span
-                                            class="text-amber-600 font-bold dot-indicator flex items-center"><span
-                                                class="w-2 h-2 bg-amber-500 rounded-full mr-2"></span>Draft</span></td>
-                                    <td class="px-6 py-4">Jan 20, 2026</td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>

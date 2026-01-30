@@ -28,7 +28,7 @@
 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-indigo-600 font-medium border-b-2 border-indigo-600 pb-1">Home</a>
+                    <a href="/" class="text-indigo-600 font-medium border-b-2 border-indigo-600 pb-1">Home</a>
                     <a href="#" class="text-gray-500 hover:text-indigo-600 font-medium transition duration-150">Start
                         Here</a>
                     <a href="#"
@@ -106,52 +106,52 @@
 
                    
 
-                        @foreach ($articles as $article)
+                        @foreach ($posts as $post)
                         <article
                             class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col h-full group">
 
                             <div class="relative h-48 overflow-hidden">
-                                <img src="{{ $article['image'] }}"
-                                    alt="{{ $article['title'] }}"
+                                <img src="{{ $post['name'] }}"
+                                    alt=""
                                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
 
                                 <span
-                                    class="absolute top-4 left-4 {{ $article['category_color'] }} text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                                    {{ $article['category'] }}
+                                    class="absolute top-4 left-4  text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                                    {{ $post['name'] }}
                                 </span>
                             </div>
 
                             <div class="p-6 flex flex-col">
                                 <div class="flex items-center text-sm text-gray-500 mb-3">
-                                    <span>{{ $article['date'] }}</span>
+                                    <span>{{ $post['created_at'] }}</span>
                                     <span class="mx-2">•</span>
-                                    <span>{{ $article['read_time'] }}</span>
+                                    <span>{{ $post['read_time'] }}</span>
                                 </div>
 
                                 <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors">
-                                    <a href="{{ url('/posts/' . $article['slug']) }}">
-                                        {{ $article['title'] }}
+                                    <a href="{{ route('postdetaille',$post) }} ">
+                                        {{ $post['title'] }}
                                     </a>
                                 </h2>
 
                                 <p class="text-gray-600 mb-6 line-clamp-3">
-                                    {{ $article['excerpt'] }}
+                                    rrgtgrt
                                 </p>
 
                                 <div class="mt-auto flex items-center justify-between">
                                     <div class="flex items-center">
                                         <div
                                             class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-600">
-                                            {{ $article['author_initials'] }}
+                                            {{ $post['content'] }}
                                         </div>
                                         <span class="ml-2 text-sm font-medium text-gray-900">
-                                            {{ $article['author'] }}
+                                            {{ $post['author'] }}
                                         </span>
                                     </div>
 
-                                    <a href="{{ url('/posts/' . $article['slug']) }}"
+                                    <a href="{{ route('postdetaille',$post) }}"
                                         class="text-indigo-600 font-semibold hover:text-indigo-800 text-sm flex items-center transition">
-                                        Read Article →
+                                        Read post →
                                     </a>
                                 </div>
                             </div>
@@ -196,7 +196,7 @@
                                             JD</div>
                                         <span class="ml-2 text-sm font-medium text-gray-900">John Doe</span>
                                     </div>
-                                    <a href="post.html"
+                                    <a href="#"
                                         class="text-indigo-600 font-semibold hover:text-indigo-800 text-sm flex items-center transition">
                                         Read Article <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24">
