@@ -2,61 +2,63 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
-        //
+        $categories = Category::all();
+        $posts = Post::with('category')->get();
+
+        // dd($posts);exit;
+        return view('admin.postes', compact('categories','posts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    
     public function create()
     {
-        //
+       require  view('postes.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
     {
-        //
+    //    var_dump($request);exit;
+        $validated = $request->validate([
+            
+        'title' => 'required|string|max:255',
+        'content' => 'required',
+        'image' => 'required|string',
+        'author' => 'required|string|max:255',
+        'read_time' => 'required',
+        'category_id' => 'required|exists:categores,id',
+    ]);
+   
+        Post::create($validated);
+        return back();
     }
 
-    /**
-     * Display the specified resource.
-     */
+   
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(string $id)
     {
         //
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    
     public function destroy(string $id)
     {
         //

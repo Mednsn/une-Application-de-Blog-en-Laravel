@@ -39,3 +39,29 @@ Ce fichier contient une rétrospective quotidienne de ce que j’ai appris en La
 - j'ai un probleme lors afficher un message
 
 -------------------------------------------
+## Jour 3 : Posts, GET, PUT et PATCH
+### Ce que j’ai appris ;
+
+- GET, POST, PUT, PATCH, différences PUT vs PATCH
+
+### Pratique
+
+- routes pour posts, formulaires simples, test dans navigateur
+
+### Difficultés
+
+- je veux ressayer de pratiquer PUT/PATCH  
+
+-------------------------------------------
+## Jour 4 : Seeders, Factories et Fakers
+### Ce que j’ai appris ;
+
+-  generer donnée avec Factories et Faker et Seeders
+
+### Pratique
+
+- creer posts et categories automatiquement par db:seed
+
+### Difficultés
+
+- pas de defficulter just il faut un peu de pratique

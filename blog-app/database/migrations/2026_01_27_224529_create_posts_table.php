@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('content');
             $table->string('image');
             $table->string('author');
-            $table->unsignedInteger('read_time');
+            $table->integer('read_time');
             $table->foreignId('category_id')
                 ->constrained()
                 ->onDelete('cascade');
