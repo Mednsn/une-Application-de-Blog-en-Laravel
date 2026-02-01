@@ -111,7 +111,7 @@
                             class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col h-full group">
 
                             <div class="relative h-48 overflow-hidden">
-                                <img src="{{ $post['name'] }}"
+                                <img src="{{ $post['image'] }}"
                                     alt=""
                                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
 
@@ -125,7 +125,11 @@
                                 <div class="flex items-center text-sm text-gray-500 mb-3">
                                     <span>{{ $post['created_at'] }}</span>
                                     <span class="mx-2">•</span>
-                                    <span>{{ $post['read_time'] }}</span>
+                                    <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg> {{ $post['read_time'] }} min read</span>
                                 </div>
 
                                 <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors">
@@ -135,14 +139,14 @@
                                 </h2>
 
                                 <p class="text-gray-600 mb-6 line-clamp-3">
-                                    rrgtgrt
+                                    rrgtgrt 
                                 </p>
 
                                 <div class="mt-auto flex items-center justify-between">
                                     <div class="flex items-center">
                                         <div
                                             class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-600">
-                                            {{ $post['content'] }}
+                                            AU
                                         </div>
                                         <span class="ml-2 text-sm font-medium text-gray-900">
                                             {{ $post['author'] }}

@@ -10,10 +10,11 @@ class AdminController extends Controller
 {
     public function index()
     {
+    
          $categories = Category::all();
         $posts = Post::with('category')->get();
 
-        // dd($posts);exit;
         return view('admin.index', compact('categories','posts'));
     }
+    
 }

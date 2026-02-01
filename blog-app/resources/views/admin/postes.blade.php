@@ -129,6 +129,7 @@
                         <table class="w-full text-left text-sm text-gray-600">
                             <thead class="bg-gray-50 text-xs uppercase font-medium text-gray-500">
                                 <tr>
+                                    <th class="px-6 py-3">Image</th>
                                     <th class="px-6 py-3">Title</th>
                                     <th class="px-6 py-3">Category</th>
                                     <th class="px-6 py-3">Date</th>
@@ -138,16 +139,21 @@
                             <tbody class="divide-y divide-gray-100">
                                 @foreach ($posts as $post)
                                 <tr class="hover:bg-gray-50 transition">
-                                    <td class="px-6 py-4 font-medium text-gray-900">{{ $post->title }}Mastering MVC in Laravel 11</td>
-                                    <td class="px-6 py-4"><span
-                                            class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full text-xs">{{ $post->name }}Laravel</span>
+                                    <td class="mb-3  rounded-8 w-8 h-8 bg-blue-800 bg-cover bg-[url({{ $post->image }})]"></td>
+                                    <td class="mb-3 px-6 py-4 font-medium text-gray-900">{{ $post->title }}</td>
+                                    <td class="mb-3 px-6 py-4"><span
+                                            class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full text-xs">{{ $post->category->name }}</span>
                                     </td>
 
-                                    <td class="px-6 py-4">{{ $post->created_at }}Jan 24, 2026</td>
-                                    <td class="px-6 py-4 text-right space-x-2">
-                                        <a href="#"
+                                    <td class="mb-3 px-6 py-4">{{ $post->created_at }}12/02/2026</td>
+                                    <td class="mb-3 px-6 py-4 text-right space-x-2">
+                                        <a href="{{ route('posts.edit', $post) }}"
                                             class="text-indigo-600 hover:text-indigo-900 font-medium">Edit</a>
-                                        <button class="text-red-600 hover:text-red-900 font-medium">Delete</button>
+                                        <form action="{{ route('posts.destroy', $post) }}" method="POST" >
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-600 hover:text-red-900 font-medium">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

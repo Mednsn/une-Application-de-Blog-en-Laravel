@@ -17,8 +17,9 @@ class CategoryController extends Controller
     }
 
 
-    public function create()
+    public function show()
     {
+        echo " wslat show ";exit;
         return view('categories.create');
     }
 
@@ -40,10 +41,7 @@ class CategoryController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|max:255',
-            'description' => 'nullable',
         ]);
-
-        $validated['completed'] = $request->has('completed');
 
         $category->update($validated);
 
@@ -52,8 +50,8 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
+        // echo "wslat hna f destroy"; exit;
         $category->delete();
-
-        return redirect()->route('categories.index');
+        return back();
     }
 }

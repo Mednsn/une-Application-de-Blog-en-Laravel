@@ -141,19 +141,23 @@
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-100">
-                                        @foreach ($categories as $categorie)
+                                        @foreach ($categories as $category)
                                         <tr class="hover:bg-gray-50 transition">
-                                            <td class="px-6 py-4 font-medium text-gray-900">#{{ $categorie['id'] }}</td>
-                                            <td class="px-6 py-4 font-bold text-gray-800">{{ $categorie['name'] }}</td>
+                                            <td class="px-6 py-4 font-medium text-gray-900">#{{ $category['id'] }}</td>
+                                            <td class="px-6 py-4 font-bold text-gray-800">{{ $category['name'] }}</td>
                                             <td class="px-6 py-4 text-right space-x-2">
                                                 <a href="#"
                                                     class="text-indigo-600 hover:text-indigo-900 font-medium">Edit</a>
-                                                <a href="#"
-                                                    class="text-red-600 hover:text-red-900 font-medium">Delete</a>
+                                                <form action="{{ route('categories.destroy',$category) }}" method="POST">
+                                                    @csrf 
+                                                    @method('delete')
+                                                    <button type="submit"
+                                                        class="text-red-600 hover:text-red-900 hover:font-bold font-medium">Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
-                                          @endforeach
-                                        
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>

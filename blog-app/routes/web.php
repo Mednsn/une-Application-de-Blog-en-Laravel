@@ -10,7 +10,7 @@ Route::get('/', [HomeController::class,'index']);
 Route::get('/home/detaille/{post}',[HomeController::class,'show'])->name('postdetaille');
 Route::resource('admin/categories', CategoryController::class); 
 Route::resource('admin/posts', PostController::class);
+Route::put('/posts/{post}/update', [PostController::class, 'update'])->name('posts.update');
 Route::resource('home', HomeController::class);
 Route::resource('home/detaille', HomeController::class);    
 Route::resource('admin', AdminController::class);
-
