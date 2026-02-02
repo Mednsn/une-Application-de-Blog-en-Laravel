@@ -19,7 +19,6 @@ class CategoryController extends Controller
 
     public function show()
     {
-        echo " wslat show ";exit;
         return view('categories.create');
     }
 
@@ -34,6 +33,7 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
+        // var_dump($category); exit;
         return view('categories.edit', compact('category'));
     }
 
@@ -45,12 +45,11 @@ class CategoryController extends Controller
 
         $category->update($validated);
 
-        return redirect()->route('categories.index');
+        return back();
     }
 
     public function destroy(Category $category)
     {
-        // echo "wslat hna f destroy"; exit;
         $category->delete();
         return back();
     }

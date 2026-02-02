@@ -145,7 +145,7 @@
                                             class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full text-xs">{{ $post->category->name }}</span>
                                     </td>
 
-                                    <td class="mb-3 px-6 py-4">{{ $post->created_at }}12/02/2026</td>
+                                    <td class="mb-3 px-6 py-4">{{ $post->created_at }}</td>
                                     <td class="mb-3 px-6 py-4 text-right space-x-2">
                                         <a href="{{ route('posts.edit', $post) }}"
                                             class="text-indigo-600 hover:text-indigo-900 font-medium">Edit</a>

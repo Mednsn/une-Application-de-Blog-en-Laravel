@@ -14,7 +14,7 @@
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-full-screen">
+<body class="bg-gray-100 text-gray-800 antialiased flex flex-col min-full-screen">
 
     <!-- Navbar -->
     <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -97,6 +97,16 @@
                     <span
                         class="bg-white text-gray-600 px-4 py-2 rounded-full text-sm font-medium border border-gray-200 hover:border-indigo-500 hover:text-indigo-600 transition cursor-pointer shadow-sm">PHP
                         8.2</span>
+                    <form action="{{ route('filtrage') }}" method="GET" class="bg-blue-500 text-white hover:bg-white hover:text-black px-4 py-2 rounded-full text-sm font-medium border border-gray-200 hover:border-indigo-500 hover:text-bold transition cursor-pointer shadow-sm">
+                    <select class="bg-blue-500 hover:bg-white " name="searsh">
+                            <option value="">filter par Category :</option>
+                            @foreach ($categories as $category)
+                            <option value=" {{ $category['id'] }}"> {{ $category['name'] }}</option>
+
+                            @endforeach
+                        </select>
+                        <button type="submit" class="bg-gray-200 text-gray-600  px-4 rounded-full text-sm font-medium border border-gray-200 hover:bg-green-500 hover:text-white transition cursor-pointer shadow-sm">Filter</button>
+                    </form>
                 </div>
 
                 <!-- Articles Grid -->
@@ -104,114 +114,66 @@
 
                     <!-- Post Card 1 -->
 
-                   
 
-                        @foreach ($posts as $post)
-                        <article
-                            class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col h-full group">
 
-                            <div class="relative h-48 overflow-hidden">
-                                <img src="{{ $post['image'] }}"
-                                    alt=""
-                                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    @foreach ($posts as $post)
+                    <article
+                        class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col h-full group">
 
-                                <span
-                                    class="absolute top-4 left-4  text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                                    {{ $post['name'] }}
-                                </span>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="{{ $post['image'] }}"
+                                alt=""
+                                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+
+                            <span
+                                class="absolute top-4 left-4  text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                                {{ $post['name'] }}
+                            </span>
+                        </div>
+
+                        <div class="p-6 flex flex-col">
+                            <div class="flex items-center text-sm text-gray-500 mb-3">
+                                <span>{{ $post['created_at'] }}</span>
+                                <span class="mx-2">•</span>
+                                <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg> {{ $post['read_time'] }} min read</span>
                             </div>
 
-                            <div class="p-6 flex flex-col">
-                                <div class="flex items-center text-sm text-gray-500 mb-3">
-                                    <span>{{ $post['created_at'] }}</span>
-                                    <span class="mx-2">•</span>
-                                    <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg> {{ $post['read_time'] }} min read</span>
-                                </div>
+                            <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors">
+                                <a href="{{ route('postdetaille',$post) }} ">
+                                    {{ $post['title'] }}
+                                </a>
+                            </h2>
 
-                                <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors">
-                                    <a href="{{ route('postdetaille',$post) }} ">
-                                        {{ $post['title'] }}
-                                    </a>
-                                </h2>
+                            <p class="text-gray-600 mb-6 line-clamp-3">
+                                rrgtgrt
+                            </p>
 
-                                <p class="text-gray-600 mb-6 line-clamp-3">
-                                    rrgtgrt 
-                                </p>
-
-                                <div class="mt-auto flex items-center justify-between">
-                                    <div class="flex items-center">
-                                        <div
-                                            class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-600">
-                                            AU
-                                        </div>
-                                        <span class="ml-2 text-sm font-medium text-gray-900">
-                                            {{ $post['author'] }}
-                                        </span>
+                            <div class="mt-auto flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div
+                                        class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-600">
+                                        AU
                                     </div>
+                                    <span class="ml-2 text-sm font-medium text-gray-900">
+                                        {{ $post['author'] }}
+                                    </span>
+                                </div>
 
-                                    <a href="{{ route('postdetaille',$post) }}"
-                                        class="text-indigo-600 font-semibold hover:text-indigo-800 text-sm flex items-center transition">
-                                        Read post →
-                                    </a>
-                                </div>
+                                <a href="{{ route('postdetaille',$post) }}"
+                                    class="text-indigo-600 font-semibold hover:text-indigo-800 text-sm flex items-center transition">
+                                    Read post →
+                                </a>
                             </div>
-                        </article>
-                        @endforeach
-                        <article
-                            class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col h-full group">
-                            <div class="relative h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                    alt="Code"
-                                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                                <span
-                                    class="absolute top-4 left-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Laravel</span>
-                            </div>
-                            <div class="p-6 flex-grow flex flex-col">
-                                <div class="flex items-center text-sm text-gray-500 mb-3">
-                                    <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
-                                            </path>
-                                        </svg> Jan 24, 2026</span>
-                                    <span class="mx-2">•</span>
-                                    <span class="flex items-center"><svg class="w-4 h-4 mr-1" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                        </svg> 5 min read</span>
-                                </div>
-                                <h2
-                                    class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors">
-                                    <a href="post.html">Mastering MVC in Laravel 11</a>
-                                </h2>
-                                <p class="text-gray-600 mb-6 line-clamp-3">
-                                    Understanding the Model-View-Controller architecture is crucial for building scalable
-                                    applications. Dive deep into the core concepts...
-                                </p>
-                                <div class="mt-auto flex items-center justify-between">
-                                    <div class="flex items-center">
-                                        <div
-                                            class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-600">
-                                            JD</div>
-                                        <span class="ml-2 text-sm font-medium text-gray-900">John Doe</span>
-                                    </div>
-                                    <a href="#"
-                                        class="text-indigo-600 font-semibold hover:text-indigo-800 text-sm flex items-center transition">
-                                        Read Article <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
-                   
+                        </div>
+                    </article>
+                    @endforeach
+
+
+
 
                 </div>
 
@@ -243,12 +205,12 @@
                             Next
                         </a>
                     </nav>
-               
 
+
+                </div>
+
+                <!-- Sidebar -->
             </div>
-
-            <!-- Sidebar -->
-        </div>
     </main>
 
     <!-- Footer -->

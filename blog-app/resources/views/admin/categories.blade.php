@@ -137,6 +137,7 @@
                                         <tr>
                                             <th class="px-6 py-3">ID</th>
                                             <th class="px-6 py-3">Name</th>
+                                            <th class="px-6 py-3">Update</th>
                                             <th class="px-6 py-3 text-right">Actions</th>
                                         </tr>
                                     </thead>
@@ -145,11 +146,20 @@
                                         <tr class="hover:bg-gray-50 transition">
                                             <td class="px-6 py-4 font-medium text-gray-900">#{{ $category['id'] }}</td>
                                             <td class="px-6 py-4 font-bold text-gray-800">{{ $category['name'] }}</td>
+                                            <td class="px-6 py-4 font-bold text-gray-800">
+                                                <form action="{{ route('categories.update', $category->id) }}" method="POST" class="flex gap-1">
+                                                    @csrf
+                                                    @method('PUT')
+
+                                                    <input type="text" name="name" class="text-black/30 border-2 rounded-40" value="{{ $category->name }}">
+                                                    <button type="submit" class="bg-green-400 px-3 hover:bg-green-700 text-white border rounded-8 ">Save</button>
+                                                </form>
+                                            </td>
                                             <td class="px-6 py-4 text-right space-x-2">
-                                                <a href="#"
+                                                <a href="{{ route('categories.edit',$category) }}"
                                                     class="text-indigo-600 hover:text-indigo-900 font-medium">Edit</a>
                                                 <form action="{{ route('categories.destroy',$category) }}" method="POST">
-                                                    @csrf 
+                                                    @csrf
                                                     @method('delete')
                                                     <button type="submit"
                                                         class="text-red-600 hover:text-red-900 hover:font-bold font-medium">Delete</button>

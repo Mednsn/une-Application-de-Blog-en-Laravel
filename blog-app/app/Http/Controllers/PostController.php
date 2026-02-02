@@ -14,7 +14,7 @@ class PostController extends Controller
         $categories = Category::all();
         $posts = Post::with('category')->get();
 
-        // dd($posts);exit;
+        // dd($categories);exit;
         return view('admin.postes', compact('categories', 'posts'));
     }
 

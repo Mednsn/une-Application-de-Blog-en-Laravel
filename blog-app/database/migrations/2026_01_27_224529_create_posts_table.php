@@ -18,9 +18,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('author');
             $table->integer('read_time');
-            $table->foreignId('category_id')
-                ->constrained()
-                ->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
